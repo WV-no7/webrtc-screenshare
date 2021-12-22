@@ -1,0 +1,14 @@
+{
+  "name": "webrtc-screenshare",
+  "version": "1.0.0",
+  "description": "Building a screenshare application using webrtc",
+  "main": "public/script.js",
+  "repository": "https://github.com/WV-no7/webrtc-screenshare.git",
+  "author": "WV-no7",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "express": "^4.17.2",
+    "socket.io": "^4.4.0"
+  }
+}
