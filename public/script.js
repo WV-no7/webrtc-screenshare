@@ -31,7 +31,12 @@ initiateBtn.onclick = (e) => {
 }
 
 stopBtn.onclick = (e) => {
-  socket.emit('initiate');
+//   socket.emit('initiate');
+    let videoElem = document.querySelector('video');
+    let tracks = videoElem.srcObject.getTracks();
+
+    tracks.forEach(track => track.stop());
+    videoElem.srcObject = null;
 }
 
 socket.on('initiate', () => {
@@ -43,14 +48,25 @@ socket.on('initiate', () => {
 function startStream () {
   if (initiator) {
     // get screen stream
-    navigator.mediaDevices.getUserMedia({
-      video: {
-        mediaSource: "screen",
-        width: { max: '1920' },
-        height: { max: '1080' },
-        frameRate: { max: '10' }
-      }
+    // navigator.mediaDevices.getUserMedia({
+    //   video: {
+    //     mediaSource: "screen",
+    //     width: { max: '1920' },
+    //     height: { max: '1080' },
+    //     frameRate: { max: '10' }
+    //   }
+    // }).then(gotMedia);
+    navigator.mediaDevices.getDisplayMedia({
+        video: {
+            cursor: "always"
+        },
+        audio: {
+            echoCancellation: true,
+            noiseSuppression: true,
+            sampleRate: 44100
+        }
     }).then(gotMedia);
+
   } else {
     gotMedia(null);
   }
