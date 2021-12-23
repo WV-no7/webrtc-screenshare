@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Building a screenshare application using webrtc",
   "main": "public/script.js",
+  "scripts": { "start": "node server.js" },
   "repository": "https://github.com/WV-no7/webrtc-screenshare.git",
   "author": "WV-no7",
   "license": "MIT",

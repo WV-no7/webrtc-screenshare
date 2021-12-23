@@ -96,7 +96,8 @@ function gotMedia (stream) {
   peer.on('stream', function (stream) {
     // got remote video stream, now let's show it in a video tag
     var video = document.querySelector('video');
-    video.srcObject = stream;
+    video.srcObject = stream; 
     video.play();
+    video.muted = false;
   })
 }
